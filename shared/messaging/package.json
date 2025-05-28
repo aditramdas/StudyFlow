@@ -1,0 +1,22 @@
+{
+  "name": "@studyflow/shared-messaging",
+  "version": "1.0.0",
+  "description": "Shared messaging utilities for StudyFlow",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node index.ts"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.4",
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.0"
+  },
+  "keywords": ["messaging", "rabbitmq", "amqp", "shared"],
+  "author": "StudyFlow Team",
+  "license": "MIT"
+} 

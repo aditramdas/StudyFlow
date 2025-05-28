@@ -2,12 +2,21 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import * as dotenv from 'dotenv';
+import path from 'path';
+import fs from 'fs';
+import documentRoutes from './routes/document.routes';
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = process.env.INGESTION_PORT || 3002;
+
+// Create uploads directory if it doesn't exist
+const uploadsDir = path.join(__dirname, '../uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 // Security middleware
 app.use(helmet());
@@ -28,6 +37,18 @@ app.use((req, res, next) => {
   next();
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'healthy',
+    service: 'Ingestion Service',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Document routes
+app.use('/api/documents', documentRoutes);
+
 // Basic route for testing
 app.get('/', (req, res) => {
   res.json({ 
@@ -36,7 +57,8 @@ app.get('/', (req, res) => {
     status: 'running',
     endpoints: {
       health: '/health',
-      upload: '/upload',
+      upload: '/api/documents/upload',
+      status: '/api/documents/status/:documentId'
     }
   });
 });
@@ -64,7 +86,7 @@ app.use((error: any, req: express.Request, res: express.Response, next: express.
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Ingestion running on ${PORT}`);
+  console.log(`Ingestion service running on port ${PORT}`);
   console.log(`Health check: http://localhost:${PORT}/health`);
 });
 

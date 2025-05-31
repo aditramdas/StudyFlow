@@ -1,4 +1,5 @@
 # StudyFlow AI Platform
+![StudyFLow 1](https://github.com/user-attachments/assets/920fd2bb-2854-4964-b4d8-300f7d8bd92a)
 
 A comprehensive microservices-based AI-powered study platform that helps users manage, process, and learn from their documents through intelligent scheduling, analytics, and personalized recommendations.
 

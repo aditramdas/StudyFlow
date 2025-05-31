@@ -1,0 +1,26 @@
+{
+  "name": "nlp-service",
+  "version": "1.0.0",
+  "description": "StudyFlow NLP Service for document processing and summarization",
+  "main": "server.py",
+  "scripts": {
+    "start": "uvicorn server:app --host 0.0.0.0 --port 3003",
+    "dev": "uvicorn server:app --host 0.0.0.0 --port 3003 --reload",
+    "test": "python -m pytest tests/ -v"
+  },
+  "dependencies": {
+    "fastapi": "^0.104.0",
+    "uvicorn": "^0.24.0"
+  },
+  "devDependencies": {
+    "pytest": "^7.4.0"
+  },
+  "keywords": [
+    "nlp",
+    "fastapi",
+    "studyflow",
+    "summarization"
+  ],
+  "author": "StudyFlow Team",
+  "license": "MIT"
+} 

@@ -1,0 +1,11 @@
+This is a test document for the StudyFlow AI platform.
+It contains sample content that can be processed by the NLP service.
+The document should be uploaded, processed, and scheduled for review.
+
+Key concepts:
+- Machine Learning
+- Natural Language Processing
+- Microservices Architecture
+- Event-driven Systems
+
+This document will help test the end-to-end flow of the platform. 
